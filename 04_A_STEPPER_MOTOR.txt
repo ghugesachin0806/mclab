@@ -1,0 +1,45 @@
+#include <reg51.h>
+
+void delay(unsigned int x)
+{
+    unsigned int i, j;
+    for (i = 0; i < x; i++)
+    {
+        for (j = 0; j < 1275; j++)
+            {}
+    }
+}
+
+void clockwise()
+{
+		P2=0x09;
+		delay(100);
+		P2=0x0C;
+		delay(100);
+		P2=0x06;
+		delay(100);
+		P2=0x03;
+		delay(100);
+	
+}
+void anticlockwise()
+{
+		P2=0x03;
+		delay(100);
+		P2=0x06;
+		delay(100);
+		P2=0x0C;
+		delay(100);
+		P2=0x09;
+		delay(100);
+	
+}
+
+void main(void)	
+{
+	while(1){
+	anticlockwise();
+	delay(300);
+	clockwise();
+	}
+}
